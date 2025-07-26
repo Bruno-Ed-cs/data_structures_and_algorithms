@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/huevo/Projects/cpp_studies/data_algo/build",
+  "command": "/usr/lib64/ccache/c++   -std=gnu++20 -o CMakeFiles/Linked_lists.dir/src/main.cpp.o -c /home/huevo/Projects/cpp_studies/data_algo/src/main.cpp",
+  "file": "/home/huevo/Projects/cpp_studies/data_algo/src/main.cpp",
+  "output": "CMakeFiles/Linked_lists.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/huevo/Projects/cpp_studies/data_algo/build",
+  "command": "/usr/lib64/ccache/c++   -std=gnu++20 -o CMakeFiles/Linked_lists.dir/src/linked_l/ki.cpp.o -c /home/huevo/Projects/cpp_studies/data_algo/src/linked_l/ki.cpp",
+  "file": "/home/huevo/Projects/cpp_studies/data_algo/src/linked_l/ki.cpp",
+  "output": "CMakeFiles/Linked_lists.dir/src/linked_l/ki.cpp.o"
+}
+]

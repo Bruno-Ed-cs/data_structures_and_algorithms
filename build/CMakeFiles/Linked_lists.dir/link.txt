@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++ -Wl,--dependency-file=CMakeFiles/Linked_lists.dir/link.d CMakeFiles/Linked_lists.dir/src/main.cpp.o CMakeFiles/Linked_lists.dir/src/linked_l/ki.cpp.o -o Linked_lists
