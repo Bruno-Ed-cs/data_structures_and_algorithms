@@ -1,3 +1,0 @@
-/home/huevo/Projects/cpp_studies/data_algo/build/CMakeFiles/Linked_lists.dir
-/home/huevo/Projects/cpp_studies/data_algo/build/CMakeFiles/edit_cache.dir
-/home/huevo/Projects/cpp_studies/data_algo/build/CMakeFiles/rebuild_cache.dir
