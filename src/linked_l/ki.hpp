@@ -1,3 +1,3 @@
 
-void ki();
 #pragma once
+void ki();
