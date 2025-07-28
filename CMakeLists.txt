@@ -8,7 +8,14 @@ set(CMAKE_BUILD_TYPE Debug)
 project(data_structures)
 
 set(FILES)
-file(GLOB_RECURSE FILES "src/*/*.cpp")
+file(GLOB_RECURSE FILES "src/*.cpp")
+
+message("Files compiled :")
+foreach(FILE ${FILES})
+    message("\t" ${FILE})
+endforeach()
+
+
 
 add_executable(Linked_lists src/linked.cpp ${FILES})
 

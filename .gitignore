@@ -29,6 +29,7 @@
 # debug information files
 *.dwo
 
-build/
+
+*build*/
 *.vim
 
