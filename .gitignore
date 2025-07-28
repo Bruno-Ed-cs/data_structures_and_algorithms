@@ -32,4 +32,5 @@
 
 *build*/
 *.vim
+.idea/
 
