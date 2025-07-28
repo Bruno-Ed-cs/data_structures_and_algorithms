@@ -1,28 +1,85 @@
 #pragma once 
 
 #include <cstddef>
+#include <iterator>
 #include <stdexcept>
 #include <string>
 #include <iostream>
 
-    //todo guard all functions for a empty list
-    //and make a iterator
-    //test everything
-    //
+//todo guard all functions for a empty list
+//and make a iterator
+//test everything
+//
 
 namespace ds {
 
+template <typename List>
+class Iterator {
+
+    using iterator_category = std::forward_iterator_tag;
+
+    using ValueType = typename List::ValueType;
+    using Pointer = typename List::Node*;
+    using Reference = typename List::Node&;
+
+    Pointer m_ptr;
+
+public:
+
+    Iterator(Pointer ptr) :
+        m_ptr(ptr) {}
+
+    ValueType& operator*() { return m_ptr->data; }
+    ValueType* operator->() { return &m_ptr->data; }
+
+    bool operator== (const Iterator& a) {
+        return m_ptr == a.m_ptr;
+    };
+
+    bool operator!= (const Iterator& a) {
+        return m_ptr != a.m_ptr;
+    };
+
+    Iterator& operator++ () {
+
+        if (m_ptr != nullptr) {
+
+            m_ptr = m_ptr->next;
+            return *this;
+        } else {
+            throw std::out_of_range("Error: operator ++& is trying to go to next in a nullpointer");
+        }
+
+    };
+
+    Iterator operator++ (int) {
+
+
+        if (m_ptr != nullptr) {
+
+            Iterator cur = *this;
+            cur.m_ptr = cur.m_ptr->next;
+            return cur;
+
+        } else {
+            throw std::out_of_range("Error: operator &++ is trying to go to next in a nullpointer");
+        }
+
+    };
+
+};
+
 template <typename Type>
 class LinkedList {
+public:
 
     struct Node {
         Type data;
         Node* next;
     };
-    Node* m_root;
-    size_t m_len;
 
-    public:
+    using ValueType = Type;
+
     LinkedList() :
         m_root(nullptr), m_len(0) {}
 
@@ -58,6 +115,7 @@ class LinkedList {
         if (index == 0) {
             new_node->next = m_root;
             m_root = new_node;
+            m_len++;
             return;
         } 
 
@@ -83,12 +141,16 @@ class LinkedList {
             return;
 
         }
-        
-        Node* prev_node = get(index);
 
-        delete prev_node->next;
+        Node* prev_node = get(index -1);
 
-        prev_node->next = nullptr;
+        Node* cur_node = prev_node->next;
+
+        prev_node->next = (prev_node->next->next == nullptr)? nullptr : prev_node->next->next;
+
+        if (cur_node != nullptr) 
+            delete cur_node;
+
         m_len--;
         return;
 
@@ -118,7 +180,7 @@ class LinkedList {
         }
 
         prev_node->next = nullptr;
-        
+
         Type data = cur_node->data;
 
         delete cur_node;
@@ -158,22 +220,33 @@ class LinkedList {
 
     }
 
-    private:
+    Iterator<LinkedList> begin() {
+        return Iterator<LinkedList>(m_root);
+    }
 
-    //Node& last() {
+    Iterator<LinkedList> end() {
+        return nullptr;
+    }
 
-    //    Node* cur_node = m_root;
-
-    //    while (cur_node->next != nullptr) {
-
-    //        cur_node = cur_node->next;
-    //    }
-
-    //    return cur_node;
-    //}
+private:
+    Node* m_root;
+    size_t m_len;
 
 
-    Node& get(const size_t index) {
+    Node& last() {
+
+        Node* cur_node = m_root;
+
+        while (cur_node->next != nullptr) {
+
+            cur_node = cur_node->next;
+        }
+
+        return cur_node;
+    }
+
+
+    Node* get(const size_t index) {
 
         if (index >= m_len) 
             throw std::out_of_range("Error: the index " + std::to_string(index) + " is out of range for the list\n");
@@ -187,6 +260,7 @@ class LinkedList {
 
         return cur_node;
     }
+
 
 
 };
