@@ -32,14 +32,13 @@ class LinkedList {
     void append(const Type&& new_data) {
 
         Node* new_node = new Node{new_data, nullptr};
-
-        Node* cur_node = m_root;
-
-        if (cur_node == nullptr) {
+        if (m_root == nullptr) {
             m_root = new_node;
             m_len++;
             return;
         }
+
+        Node* cur_node = m_root;
 
         while(cur_node->next != nullptr) {
 
@@ -71,24 +70,60 @@ class LinkedList {
 
     }
 
-    Type remove(const size_t index){
+    void remove(const size_t index){
 
+        if (m_root == nullptr)
+            throw std::out_of_range("Error: deletion on empty list");
 
+        if (index == 0) {
+
+            Node* first = m_root;
+            m_root = m_root->next;
+            m_len--;
+            return;
+
+        }
+        
+        Node* prev_node = get(index);
+
+        delete prev_node->next;
+
+        prev_node->next = nullptr;
+        m_len--;
+        return;
+
+    }
+
+    size_t len() {
+
+        return m_len;
 
     }
 
     Type pop() {
 
-        Type poped = last().data;
+        if (m_root == nullptr)
+            throw std::out_of_range("Error: deletion on empty list");
 
-        delete last();
+        Node* cur_node = m_root; 
+        Node* prev_node = m_root;
 
-        get(m_len -2).next = nullptr;
+        while (cur_node != nullptr) {
 
+            prev_node = cur_node;
+            cur_node = cur_node->next;
+
+            if (cur_node->next == nullptr)
+                break;
+        }
+
+        prev_node->next = nullptr;
+        
+        Type data = cur_node->data;
+
+        delete cur_node;
         m_len--;
-
-        return poped;
-
+        return data;
     }
 
     Type& operator[](const size_t index) {
@@ -125,17 +160,17 @@ class LinkedList {
 
     private:
 
-    Node& last() {
+    //Node& last() {
 
-        Node* cur_node = m_root;
+    //    Node* cur_node = m_root;
 
-        while (cur_node->next != nullptr) {
+    //    while (cur_node->next != nullptr) {
 
-            cur_node = cur_node->next;
-        }
+    //        cur_node = cur_node->next;
+    //    }
 
-        return cur_node;
-    }
+    //    return cur_node;
+    //}
 
 
     Node& get(const size_t index) {
