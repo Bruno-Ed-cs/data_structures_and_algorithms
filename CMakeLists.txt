@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -22,6 +22,10 @@ add_executable(Olog_n src/complexidade/O\(log\ n\).c)
 add_executable(O_n src/complexidade/O\(n\).c)
 add_executable(On_pow_2 src/complexidade/O\(n²\).c)
 add_executable(arvore_simples src/arvores/arvore_simples.c)
+add_executable(ordenadores src/ordenacao/testes.cpp)
+
+target_compile_features(Linked_lists PRIVATE cxx_std_20)
+target_compile_features(ordenadores PRIVATE cxx_std_20)
 
 # Add include directories and link libraries for the tree executable
 target_include_directories(arvore_simples PRIVATE ${GRAPHVIZ_INCLUDE_DIRS})
