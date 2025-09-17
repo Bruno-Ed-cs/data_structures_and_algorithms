@@ -4,6 +4,7 @@
 #include <chrono>
 #include <format>
 #include <cassert>
+#include <algorithm>
 
 #include "bubble.hpp"
 #include "insertion.hpp"
@@ -31,14 +32,29 @@ void print_sorting(const std::string&& sorting_name, std::function<void(std::vec
     std::cout << "Time = " << elapsed_time.count() << "ns" << std::endl << std::endl;
 
     //verifica se o algoritimo realmente oredenou o array
-    std::vector<int> ideal_result { 2, 3, 6, 7, 9, 10, 33, 34, 100, 345} ;
+    std::vector<int> ideal_result = target;
+
+    std::sort(ideal_result.begin(), ideal_result.end());
+
     assert(target == ideal_result);
 }
 
-int main() {
+int main(int argc, char** argv) {
 
+    std::vector<int> numeros;
 
-    std::vector<int> numeros { 33, 10, 100, 34, 6, 3, 2, 7, 9, 345 };
+    if (argc <= 1) {
+
+        numeros = { 33, 10, 100, 34, 6, 3, 2, 7, 9, 345 };
+
+    } else {
+
+        for (int i = 1; i < argc; ++i) {
+
+            numeros.push_back(std::stoi(argv[i]));
+        }
+
+    }
 
     print_sorting("Bubble", Order::bubble_sort, numeros);
     print_sorting("Insertion",Order::insertion_sort, numeros);

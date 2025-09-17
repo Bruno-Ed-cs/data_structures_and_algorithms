@@ -8,11 +8,11 @@ void gaping_sort(std::vector<int>& list, int gap, int start) {
 
         //fazemos os insertions sort levando em conta a distancia
         int j = i;
-        while (j > 0 && list[i - gap] > list[i]) {
+        while (j >= gap && list[j - gap] > list[j]) {
 
-            int temp = list[i];
-            list[i] = list[i - gap];
-            list[i - gap] = temp;
+            int temp = list[j];
+            list[j] = list[j - gap];
+            list[j - gap] = temp;
 
             j -= gap;
         }
