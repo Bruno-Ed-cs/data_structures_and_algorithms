@@ -1,20 +1,20 @@
-#include <iostream>
 #include <vector>
-#include <functional>
 
 namespace Order {
 
 void bubble_sort(std::vector<int>& list) {
 
-    for (int i = 0; i < list.size(); ++i) {
+    // os tamanhos estao subitraidos de 1, pois sempre visitamos o proximo elemento que estamos analizando junto do elemento atual
+    for (int i = 0; i < list.size() - 1 ; ++i) {
 
-        for (int j = i + 1; j < list.size(); ++j) {
+        //o tamanho ta por - i, pois o final da lista ja vai ser ordenado com o passar das iterações
+        for (int j = 0; j < list.size() - i - 1 ; ++j) {
 
-            if (list[i] > list[j]) {
+            if (list[j] > list[j + 1]) {
 
-                int temp = list[i];
-                list[i] = list[j];
-                list[j] = temp;
+                int temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
 
             }
 
