@@ -1,26 +1,16 @@
 #include <cassert>
 #include <exception>
 #include <iostream>
-#include "linked_l/ki.hpp"
 #include <iterator>
 #include <vector>
-#include "linked_l/linked_list.hpp"
+#include "linked_list.hpp"
 
-struct tt {
-    int first;
-    int second;
-};
 
 int main() { 
 
-    std::cout << "hello vagabunda" << std::endl;
-    ki();
-    tt tee;
 
     std::vector<int>::iterator it;
 
-
-    std::cout << tee.second << std::endl;
 
     ds::LinkedList<int> list;
     ds::LinkedList<double> trouble(22.2f);

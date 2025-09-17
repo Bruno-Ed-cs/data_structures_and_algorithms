@@ -15,7 +15,7 @@ pkg_check_modules(GRAPHVIZ REQUIRED libgvc libcgraph libcdt)
 message(STATUS "Graphviz includes: ${GRAPHVIZ_INCLUDE_DIRS}")
 message(STATUS "Graphviz libraries: ${GRAPHVIZ_LIBRARIES}")
 
-add_executable(Linked_lists src/linked_lists_tests.cpp src/linked_l/ki.cpp)
+add_executable(linked_list src/linked_l/linked_lists_tests.cpp)
 
 add_executable(O2_pow_n src/complexidade/O\(2ⁿ\).c)
 add_executable(Olog_n src/complexidade/O\(log\ n\).c)
@@ -23,9 +23,6 @@ add_executable(O_n src/complexidade/O\(n\).c)
 add_executable(On_pow_2 src/complexidade/O\(n²\).c)
 add_executable(arvore_simples src/arvores/arvore_simples.c)
 add_executable(ordenadores src/ordenacao/testes.cpp)
-
-target_compile_features(Linked_lists PRIVATE cxx_std_20)
-target_compile_features(ordenadores PRIVATE cxx_std_20)
 
 # Add include directories and link libraries for the tree executable
 target_include_directories(arvore_simples PRIVATE ${GRAPHVIZ_INCLUDE_DIRS})

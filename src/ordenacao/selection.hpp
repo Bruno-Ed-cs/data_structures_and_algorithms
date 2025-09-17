@@ -1,4 +1,5 @@
 #include <vector>
+#include <utility>
 
 namespace Order {
 
@@ -23,6 +24,9 @@ void selection_sort(std::vector<int>& list) {
         int temp = list[i];
         list[i] = list[smallest];
         list[smallest] = temp;
+
+        //pra quem usa c++ no header utility tem uma função de trocar variaveis
+        //std::swap(list[smallest], list[i]);
 
 
     }
