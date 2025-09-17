@@ -7,6 +7,7 @@
 
 #include "bubble.hpp"
 #include "insertion.hpp"
+#include "selection.hpp"
 
 void print_sorting(const std::string&& sorting_name, std::function<void(std::vector<int>&)> sort_func, std::vector<int> target) {
 
@@ -40,4 +41,5 @@ int main() {
 
     print_sorting("Bubble", Order::bubble_sort, numeros);
     print_sorting("Insertion",Order::insertion_sort, numeros);
+    print_sorting("Selection", Order::selection_sort, numeros);
 }
