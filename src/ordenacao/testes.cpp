@@ -5,6 +5,7 @@
 #include <cassert>
 #include <algorithm>
 
+#include "merge.hpp"
 #include "bubble.hpp"
 #include "insertion.hpp"
 #include "selection.hpp"
@@ -106,9 +107,10 @@ int main(int argc, char** argv) {
 
     }
 
+    print_sorting("Shell", Order::shell_sort, numeros);
+    print_sorting("Heap", Order::heap_sort, numeros);
+    print_sorting("Merge", Order::merge_sort, numeros);
     print_sorting("Bubble", Order::bubble_sort, numeros);
     print_sorting("Insertion",Order::insertion_sort, numeros);
     print_sorting("Selection", Order::selection_sort, numeros);
-    print_sorting("Shell", Order::shell_sort, numeros);
-    print_sorting("Heap", Order::heap_sort, numeros);
 }
