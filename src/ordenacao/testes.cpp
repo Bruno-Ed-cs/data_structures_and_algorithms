@@ -1,10 +1,7 @@
-#include <cstdlib>
 #include <iostream>
-#include <array>
 #include <functional>
 #include <random>
 #include <chrono>
-#include <format>
 #include <cassert>
 #include <algorithm>
 
@@ -12,6 +9,7 @@
 #include "insertion.hpp"
 #include "selection.hpp"
 #include "shell.hpp"
+#include "heap.hpp"
 
 //tempos de execução
 // time ./ordenadores random 100000
@@ -43,7 +41,7 @@ void print_sorting(const std::string&& sorting_name, std::function<void(std::vec
 
     std::cout << sorting_name << " sort = { ";
 
-    if (target.size() < 50) {
+    if (target.size() < 500) {
 
         for (int number : target) {
 
@@ -112,4 +110,5 @@ int main(int argc, char** argv) {
     print_sorting("Insertion",Order::insertion_sort, numeros);
     print_sorting("Selection", Order::selection_sort, numeros);
     print_sorting("Shell", Order::shell_sort, numeros);
+    print_sorting("Heap", Order::heap_sort, numeros);
 }
