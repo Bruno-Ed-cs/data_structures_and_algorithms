@@ -13,25 +13,38 @@
 #include "heap.hpp"
 #include "quick.hpp"
 
-//tempos de execução
-// time ./ordenadores random 100000
-// Bubble sort = { }
-// Time = 81345 milliseconds
-// 
-// Insertion sort = { }
-// Time = 47172 milliseconds
-// 
-// Selection sort = { }
-// Time = 41885 milliseconds
-// 
-// Shell sort = { }
-// Time = 73 milliseconds
-// 
-// 
-// real	2m50.504s
-// user	2m50.456s
-// sys	0m0.005s
+//Como usar os testes:
+//se o binario for executado sem argumentos ele usa um vetor predefinido
+//
+//é possivel passar seu propio vetor de numeros, basta passar n números como argumentos do programa
+//ex: ordenadores 2 55 99 107 3 5 33 56
+//
+//caso queira usar numeros randomicos basta passar o primeiro argumento como random e depois passar o tamanho do vetor
+//ex: ordenadores random 1000
+//
+//para um vetor com 1000 numeros aleatorios
 
+//tempos de execução com 100000 elementos aleatorios
+//Shell sort = { }
+//Time = 74 milliseconds
+//
+//Heap sort = { }
+//Time = 47 milliseconds
+//
+//Merge sort = { }
+//Time = 54 milliseconds
+//
+//Quick sort = { }
+//Time = 29 milliseconds
+//
+//Insertion sort = { }
+//Time = 47246 milliseconds
+//
+//Selection sort = { }
+//Time = 40350 milliseconds
+//
+//Bubble sort = { }
+//Time = 89939 milliseconds
 
 void print_sorting(const std::string&& sorting_name, std::function<void(std::vector<int>&)> sort_func, std::vector<int> target) {
 
