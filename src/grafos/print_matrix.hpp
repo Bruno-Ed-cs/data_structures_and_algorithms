@@ -3,6 +3,7 @@
 #include <graphviz/cgraph.h>
 #include <graphviz/gvc.h>
 #include <graphviz/gvcext.h>
+#include <print>
 #include <span>
 #include <string>
 #include <vector>
@@ -61,6 +62,7 @@ void print_matrix_graph(std::vector<std::vector<int>> matrix) {
     // Free the context
     gvFreeContext(context);
 
+    std::println("Grafo printado, olhe a pasta do binario");
 
 }
 
