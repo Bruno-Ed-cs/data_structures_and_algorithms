@@ -78,6 +78,7 @@ void merge_sort(std::vector<int>& list) {
 
     //Caso inicial da divisao com o vetor inteiro
     divide(list, 0, list.size() -1);
+
 };
 
 }

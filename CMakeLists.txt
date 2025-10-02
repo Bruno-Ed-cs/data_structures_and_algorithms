@@ -24,7 +24,9 @@ add_executable(On_pow_2 src/complexidade/O\(n²\).c)
 add_executable(arvore_simples src/arvores/arvore_simples.c)
 add_executable(ordenadores src/ordenacao/testes.cpp)
 add_executable(busca src/busca/testes.cpp)
+add_executable(grafo src/grafos/atividade.cpp)
 
 # Add include directories and link libraries for the tree executable
 target_include_directories(arvore_simples PRIVATE ${GRAPHVIZ_INCLUDE_DIRS})
 target_link_libraries(arvore_simples PRIVATE ${GRAPHVIZ_LIBRARIES})
+target_link_libraries(grafo PRIVATE ${GRAPHVIZ_LIBRARIES})

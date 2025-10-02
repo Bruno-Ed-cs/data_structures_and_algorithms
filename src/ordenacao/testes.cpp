@@ -3,6 +3,7 @@
 #include <random>
 #include <chrono>
 #include <cassert>
+#include <print>
 #include <algorithm>
 
 #include "merge.hpp"
@@ -128,4 +129,7 @@ int main(int argc, char** argv) {
     print_sorting("Insertion",Order::insertion_sort, numeros);
     print_sorting("Selection", Order::selection_sort, numeros);
     print_sorting("Bubble", Order::bubble_sort, numeros);
+
+
+    std::println("alguma string e o template: {}", numeros);
 }
