@@ -1,5 +1,6 @@
 #include <cassert>
 #include <cstddef>
+#include <ostream>
 #include <vector>
 #include <iostream>
 
@@ -62,7 +63,7 @@ struct MatrizE {
 
         }
 
-        if (temp != nullptr && coluna == coluna) {
+        if (temp != nullptr && temp->coluna == coluna) {
             temp->valor = novo_num;
             return;
         }
@@ -73,43 +74,22 @@ struct MatrizE {
     };
 
     void print() {
-        for (size_t i = 0; i < linhas; ++i) {
-            ElementoM* atual = matriz[i];
 
-            // If the row is empty, print all zeros
-            if (atual == nullptr) {
-                for (size_t j = 0; j < colunas; ++j) {
-                    std::cout << "0 ";
-                }
-                std::cout << "\n";
-                continue;
-            }
+        std::cout << "Matrix: \n";
 
-            // Traverse through columns and print values
-            size_t coluna_atual = 0;
-            while (atual != nullptr) {
-                // Print zeros for columns before the current element
-                while (coluna_atual < atual->coluna) {
-                    std::cout << "0 ";
-                    coluna_atual++;
-                }
+        for (int i = 0; i < linhas; ++i) {
 
-                // Print the actual value
-                std::cout << atual->valor << " ";
-                coluna_atual++;
+            for (int j = 0; j < colunas; ++j) {
 
-                // Move to next element in the row
-                atual = atual->vizinho;
-            }
-
-            // Print zeros for remaining columns in the row
-            while (coluna_atual < colunas) {
-                std::cout << "0 ";
-                coluna_atual++;
+                std::cout << get(i, j) << " ";
             }
 
             std::cout << "\n";
+
         }
+
+        std::cout << std::endl;
+        
     };
 
 };
